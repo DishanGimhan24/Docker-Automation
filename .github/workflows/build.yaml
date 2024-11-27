@@ -20,11 +20,14 @@ jobs:
         id: vars
         run: echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
     
+
+
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
           context: ./
           push: true
           tags: |
-                kalharacodes/docker-automation:${{ env.SHORT_SHA }}
-                kalharacodes/docker-automation:latest
+                dishangimhan/docker-automation:${{ env.SHORT_SHA }}
+                dishangimhan/docker-automation:latest
